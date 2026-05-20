@@ -1,7 +1,6 @@
 import React, {
   useEffect,
   useState,
-  useRef
 } from "react";
 
 import axios from "axios";
@@ -19,12 +18,11 @@ import {
 function Home({ cart = [], setCart }) {
 
   const [products, setProducts] = useState([]);
-  const [slider, setSlider] = useState([]);
   const [current, setCurrent] = useState(0);
 
   const navigate = useNavigate();
 
-  const sliderRef = useRef(null);
+ 
 
   /* ================= FETCH ================= */
 
@@ -34,9 +32,7 @@ function Home({ cart = [], setCart }) {
       .then(res => setProducts(res.data))
       .catch(console.log);
 
-    axios.get("https://silva-tech-backend-pazp.onrender.com/slider")
-      .then(res => setSlider(res.data))
-      .catch(console.log);
+    
 
   }, []);
 
@@ -74,15 +70,7 @@ function Home({ cart = [], setCart }) {
     return img;
   };
 
-  /* ================= FILTER ================= */
-
-  const topProducts = products.filter(
-    p => p.isTopSeller
-  );
-
-  const comingProducts = products.filter(
-    p => p.isComingSoon
-  );
+  
 
   /* ================= CART ================= */
 
