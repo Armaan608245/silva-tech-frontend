@@ -14,8 +14,7 @@ function Accessories({ cart = [], setCart }) {
 
   useEffect(() => {
 
-    axios
-      .get("https://silva-tech-backend-pazp.onrender.com/api/products")
+    axios.get("https://silva-tech-backend-pazp.onrender.com/api/products")
 
       .then((res) => {
 
