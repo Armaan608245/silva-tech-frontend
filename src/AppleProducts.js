@@ -15,7 +15,7 @@ function AppleProducts({ cart = [], setCart }) {
   useEffect(() => {
 
     axios
-      .get("https://silva-tech-backend-pazp.onrender.com/api/products/products")
+      .get("https://silva-tech-backend-pazp.onrender.com/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
 
