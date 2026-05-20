@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Admin() {
 
-  const API = "https://silva-tech-backend-pazp.onrender.com";
+  const API = "https://silva-tech-backend-pazp.onrender.com/api/products";
 
   const [tab, setTab] = useState("products");
 

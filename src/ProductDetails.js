@@ -16,7 +16,7 @@ function ProductDetails({ cart = [], setCart }) {
 
   const [zoomStyle, setZoomStyle] = useState({});
 
-  const API = "https://silva-tech-backend-pazp.onrender.com";
+  const API = "https://silva-tech-backend-pazp.onrender.com/api/products";
 
   useEffect(() => {
 

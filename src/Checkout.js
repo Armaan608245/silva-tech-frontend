@@ -60,7 +60,7 @@ function Checkout({ cart, setCart }) {
     try {
 
       await axios.post(
-        "https://silva-tech-backend-pazp.onrender.com/activity",
+        "https://silva-tech-backend-pazp.onrender.com/api/products/activity",
         {
 
           customerName: form.name,

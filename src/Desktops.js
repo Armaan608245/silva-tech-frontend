@@ -19,7 +19,7 @@ function Desktops({ cart = [], setCart }) {
   useEffect(() => {
 
     axios
-      .get("https://silva-tech-backend-pazp.onrender.com/products")
+      .get("https://silva-tech-backend-pazp.onrender.com/api/products/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
 
