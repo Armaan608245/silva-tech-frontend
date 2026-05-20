@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Admin() {
@@ -57,20 +57,22 @@ function Admin() {
     isFeatured: false
   });
 
-  
+
 
   /* ================= FETCH ================= */
 
-  
+
 
   const fetchProducts = async () => {
 
-    const res = await axios.get(`${API}/products`);
+    const res = await axios.get(API);
 
     setProducts(res.data);
   };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-  
 
   /* ================= IMAGE ================= */
 
@@ -99,7 +101,7 @@ function Admin() {
     });
   };
 
- 
+
 
   /* ================= CLEAR ================= */
 
@@ -172,19 +174,13 @@ function Admin() {
 
     if (editingId) {
 
-      await axios.put(
-        `${API}/products/${editingId}`,
-        data
-      );
+      await axios.put(`${API}/${editingId}`, data);
 
       alert("Updated ✅");
 
     } else {
 
-      await axios.post(
-        `${API}/products`,
-        data
-      );
+      await axios.post(API, data);
 
       alert("Added ✅");
     }
@@ -198,7 +194,7 @@ function Admin() {
 
   const handleDelete = async (id) => {
 
-    await axios.delete(`${API}/products/${id}`);
+    await axios.delete(`${API}/${id}`);
 
     fetchProducts();
   };
@@ -228,7 +224,7 @@ function Admin() {
     });
   };
 
-  
+
 
   /* ================= SAFE IMAGE ================= */
 
