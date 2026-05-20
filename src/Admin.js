@@ -16,7 +16,7 @@ function Admin() {
       "Enter Admin Password"
     );
 
-    if (password !== "silvaadmin123") {
+    if (password !== "S!lv@Tech#2025$Admin") {
 
       window.location.href = "/";
 
