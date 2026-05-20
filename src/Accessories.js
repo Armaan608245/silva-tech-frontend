@@ -183,28 +183,7 @@ function Accessories({ cart = [], setCart }) {
       });
   };
 
-  /* ================= FIXED CATEGORY CHECK ================= */
-
-  const hasProducts = (subcategory) => {
-
-    return products.some((p) => {
-
-      const category =
-        p.category?.toLowerCase().trim();
-
-      const sub =
-        p.subcategory?.toLowerCase().trim();
-
-      return (
-        category === "accessories" &&
-        (
-          sub === subcategory ||
-          sub === "desktop-accessories" ||
-          sub === "desktop-spares"
-        )
-      );
-    });
-  };
+  
 
   /* ================= FIXED PRODUCT FILTER ================= */
 
