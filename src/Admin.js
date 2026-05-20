@@ -8,7 +8,7 @@ function Admin() {
   const [tab, setTab] = useState("products");
 
   const [products, setProducts] = useState([]);
-  const [sliders, setSliders] = useState([]);
+
 
   const [editingId, setEditingId] = useState(null);
 
@@ -57,21 +57,11 @@ function Admin() {
     isFeatured: false
   });
 
-  /* ================= SLIDER ================= */
-
-  const [sliderData, setSliderData] = useState({
-    url: "",
-    type: "image"
-  });
+  
 
   /* ================= FETCH ================= */
 
-  useEffect(() => {
-
-    fetchProducts();
-    fetchSlider();
-
-  }, []);
+  
 
   const fetchProducts = async () => {
 
@@ -80,12 +70,7 @@ function Admin() {
     setProducts(res.data);
   };
 
-  const fetchSlider = async () => {
-
-    const res = await axios.get(`${API}/slider`);
-
-    setSliders(res.data);
-  };
+  
 
   /* ================= IMAGE ================= */
 
@@ -114,28 +99,7 @@ function Admin() {
     });
   };
 
-  /* ================= SLIDER ================= */
-
-  const handleSliderUpload = async (e) => {
-
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    const formData = new FormData();
-
-    formData.append("file", file);
-
-    const res = await axios.post(
-      `${API}/upload`,
-      formData
-    );
-
-    setSliderData({
-      ...sliderData,
-      url: res.data.url
-    });
-  };
+ 
 
   /* ================= CLEAR ================= */
 
@@ -264,36 +228,7 @@ function Admin() {
     });
   };
 
-  /* ================= SLIDER ================= */
-
-  const addSlider = async () => {
-
-    if (!sliderData.url) {
-
-      return alert("Upload slider image ❌");
-    }
-
-    await axios.post(
-      `${API}/slider`,
-      sliderData
-    );
-
-    alert("Slider Added ✅");
-
-    setSliderData({
-      url: "",
-      type: "image"
-    });
-
-    fetchSlider();
-  };
-
-  const deleteSlider = async (id) => {
-
-    await axios.delete(`${API}/slider/${id}`);
-
-    fetchSlider();
-  };
+  
 
   /* ================= SAFE IMAGE ================= */
 
