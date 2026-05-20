@@ -57,30 +57,7 @@ function Checkout({ cart, setCart }) {
       return;
     }
 
-    try {
-
-      await axios.post(
-        "https://silva-tech-backend-pazp.onrender.com/api/products/activity",
-        {
-
-          customerName: form.name,
-
-          email: form.email,
-
-          phone: form.phone,
-
-          address: form.address,
-
-          type: "order"
-        }
-      );
-
-    } catch (err) {
-
-      alert("Order saving failed ❌");
-
-      return;
-    }
+   
 
     /* ================= PRODUCT DETAILS ================= */
 
@@ -172,6 +149,7 @@ ${productList}
 
     const url =
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      alert("Order Placed Successfully ✅");
 
     window.location.href = url;
 
