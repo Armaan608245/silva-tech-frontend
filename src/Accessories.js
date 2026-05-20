@@ -182,7 +182,7 @@ function Accessories({ cart = [], setCart }) {
       });
   };
 
-  
+
 
   /* ================= FIXED PRODUCT FILTER ================= */
 
@@ -192,16 +192,11 @@ function Accessories({ cart = [], setCart }) {
 
       .filter((p) => {
 
-        const category =
-          p.category?.toLowerCase().trim();
-
         const sub =
           p.subcategory?.toLowerCase().trim();
 
-        return (
-          category === "accessories" &&
-          sub === subcategory
-        );
+        return sub === subcategory;
+
       })
 
       .map((p) => (
@@ -316,7 +311,7 @@ function Accessories({ cart = [], setCart }) {
 
                   )}
 
-                
+
 
                   <button
                     className="desktop-view-btn"
