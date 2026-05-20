@@ -7,7 +7,22 @@ function Admin() {
 
   const [tab, setTab] = useState("products");
 
+ 
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    const password = prompt(
+      "Enter Admin Password"
+    );
+
+    if (password !== "silvaadmin123") {
+
+      window.location.href = "/";
+
+    }
+
+  }, []);
 
 
   const [editingId, setEditingId] = useState(null);
