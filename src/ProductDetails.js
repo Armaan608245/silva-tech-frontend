@@ -21,7 +21,7 @@ function ProductDetails({ cart = [], setCart }) {
   useEffect(() => {
 
     axios
-      .get(`${API}/products/${id}`)
+      .get(`${API}/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.log(err));
 
