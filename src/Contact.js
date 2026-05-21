@@ -55,7 +55,7 @@ ${form.message}`;
           {/* LOGO */}
 
           <img
-            src="/SILA TECH COMPUTERS.png"
+            src="/reallogo.jpeg"
             alt="Silva Tech Computers"
             className="contact-logo"
           />
@@ -132,7 +132,7 @@ ${form.message}`;
           <div className="contact-brand-card">
 
             <img
-              src="/SILA TECH COMPUTERS.png"
+              src="/reallogo.jpeg"
               alt="Silva Tech Computers"
             />
 
