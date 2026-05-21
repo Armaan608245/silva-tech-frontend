@@ -31,17 +31,17 @@ function Footer() {
           <div className="footer-logo-wrap">
 
             <img
-              src="/SILA TECH COMPUTERS.png"
+              src="/reallogo.jpeg"
               alt="Silva Tech"
               className="footer-logo"
             />
 
             <div>
 
-              <h2>Silva Tech</h2>
+              <h2>SILVA TECH COMPUTERS</h2>
 
               <span>
-                PREMIUM TECH SOLUTIONS
+                YOUR VISION OUR TECH
               </span>
 
             </div>
@@ -50,11 +50,11 @@ function Footer() {
 
           <p className="footer-about">
 
-            Silva Tech Computer provides
-            premium IT solutions including
-            desktops, laptops, networking,
-            repairs, CCTV, printers and
-            complete enterprise support.
+            SILVA TECH COMPUTER PROVIDES 
+            PREMIUM IT SOLUTIONS INCLUDING 
+            DESKTOPS, LAPTOPS, NETWORKING,
+            REPAIRS, CCTV, PRINTERS AND 
+            COMPLETE ENTERPRISE SUPPORT.
 
           </p>
 
@@ -173,7 +173,7 @@ function Footer() {
             <FaEnvelope />
 
             <span>
-              silvatechc@gmail.com
+              silvatech.ak@gmail.com
             </span>
 
           </div>
@@ -215,7 +215,7 @@ function Footer() {
       <div className="premium-footer-bottom">
 
         <p>
-          © 2026 Silva Tech Computer.
+          © 2026 Silva Tech Computers.
           All Rights Reserved.
         </p>
 

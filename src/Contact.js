@@ -156,7 +156,7 @@ ${form.message}`;
             </h3>
 
             <p>
-              silvatechc@gmail.com
+              silvatech.ak@gmail.com
             </p>
 
           </div>
