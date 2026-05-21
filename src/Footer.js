@@ -193,8 +193,10 @@ function Footer() {
             <FaMapMarkerAlt />
 
             <span>
-              Kailash Industrial Complex,
-              Vikhroli West, Mumbai
+              Unit No. 201, F-Wing,
+              Kailash Industrial Complex, 
+              Vikhroli (West), 
+              Mumbai - 400079
             </span>
 
           </div>
