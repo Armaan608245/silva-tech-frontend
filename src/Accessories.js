@@ -396,14 +396,14 @@ function Accessories({ cart = [], setCart }) {
             className="accessories-menu-item"
             onClick={() => scrollToSection("laptop")}
           >
-            LAPTOP SPARES
+            💻 LAPTOP SPARES
           </div>
 
           <div
             className="accessories-menu-item"
             onClick={() => scrollToSection("desktop")}
           >
-            DESKTOP SPARES
+            🖥️ DESKTOP SPARES
           </div>
 
 
@@ -412,28 +412,28 @@ function Accessories({ cart = [], setCart }) {
             className="accessories-menu-item"
             onClick={() => navigate("/printers")}
           >
-            PRINTERS
+            🖨️ PRINTERS
           </div>
 
           <div
             className="accessories-menu-item"
             onClick={() => navigate("/storage")}
           >
-            STORAGE SOLUTIONS
+            💾 STORAGE SOLUTIONS
           </div>
 
           <div
             className="accessories-menu-item"
             onClick={() => navigate("/scanners")}
           >
-            SCANNERS
+            📠 SCANNERS
           </div>
 
           <div
             className="accessories-menu-item"
             onClick={() => navigate("/network-equipment")}
           >
-            NETWORK EQUIPMENTS
+            📡 NETWORK EQUIPMENTS
           </div>
 
         </div>

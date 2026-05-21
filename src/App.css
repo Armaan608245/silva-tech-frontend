@@ -7557,3 +7557,89 @@ body::before{
 .premium-footer-col h3::after{
   background: #3b82f6 !important;
 }
+/* ========================================= */
+/* ACCESSORIES BUTTON STYLE */
+/* ========================================= */
+
+.accessories-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  margin-top: 40px;
+}
+
+.accessories-list h2,
+.accessories-item{
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a8a
+    );
+
+  color: white;
+
+  padding:
+    22px 34px;
+
+  border-radius: 22px;
+
+  min-width: 280px;
+
+  cursor: pointer;
+
+  transition: 0.35s ease;
+
+  box-shadow:
+    0 12px 30px rgba(37,99,235,0.15);
+
+  font-size: 22px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.accessories-list h2:hover,
+.accessories-item:hover{
+
+  transform:
+    translateY(-6px)
+    scale(1.02);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  box-shadow:
+    0 18px 40px rgba(37,99,235,0.28);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .accessories-list{
+    flex-direction: column;
+  }
+
+  .accessories-list h2,
+  .accessories-item{
+
+    width: 100%;
+
+    font-size: 18px;
+
+    border-radius: 18px;
+
+    padding: 18px 20px;
+  }
+
+}

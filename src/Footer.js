@@ -52,7 +52,7 @@ function Footer() {
 
             SILVA TECH COMPUTERS PROVIDES 
             PREMIUM IT SOLUTIONS INCLUDING 
-            Refurbished Laptops,DESKTOPS,
+            REFURBISHED LAPTOPS,DESKTOPS,
             LAPTOPS, NETWORKING,
             REPAIRS, CCTV, PRINTERS AND 
             COMPLETE ENTERPRISE SUPPORT.
