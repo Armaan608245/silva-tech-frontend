@@ -50,9 +50,10 @@ function Footer() {
 
           <p className="footer-about">
 
-            SILVA TECH COMPUTER PROVIDES 
+            SILVA TECH COMPUTERS PROVIDES 
             PREMIUM IT SOLUTIONS INCLUDING 
-            DESKTOPS, LAPTOPS, NETWORKING,
+            Refurbished Laptops,DESKTOPS,
+            LAPTOPS, NETWORKING,
             REPAIRS, CCTV, PRINTERS AND 
             COMPLETE ENTERPRISE SUPPORT.
 

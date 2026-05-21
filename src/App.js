@@ -461,7 +461,7 @@ function App() {
   const openWhatsApp = () => {
 
     const msg = encodeURIComponent(
-      "Hello Silva Tech Computer, I need help."
+      "Hello Silva Tech Computers, I need help."
     );
 
     window.open(

@@ -63,7 +63,7 @@ function About() {
           </h2>
 
           <p>
-            Silva Tech Computer is a trusted provider of desktops,
+            Silva Tech Computers is a trusted provider of desktops,
             laptops, printers and IT services across Mumbai.
           </p>
 
@@ -168,24 +168,15 @@ function About() {
             <h2>AFROZ KHAN</h2>
 
             <p className="owner-role">
-              Founder of Silva Tech Computer
+              Founder of Silva Tech Computers
             </p>
 
             <div className="owner-details">
 
-              <p>
-                <strong>University:</strong>
-                {" "}K J Somaiya College of Engineering
-              </p>
-
-              <p>
-                <strong>School:</strong>
-                {" "}St Judes High School
-              </p>
 
               <p>
                 <strong>Expertise:</strong>
-                {" "}IT Services, Networking & Hardware Support
+                {" "}Silva Tech Computer brings more than 18 years of professional expertise in providing comprehensive IT solutions and technical support services. From computer sales and repairs to advanced networking, CCTV surveillance, printers, and enterprise infrastructure management, we are dedicated to delivering dependable and efficient technology services. Our experienced team focuses on quality, innovation, and long-term customer relationships, ensuring every client receives personalized solutions and exceptional support.
               </p>
 
             </div>

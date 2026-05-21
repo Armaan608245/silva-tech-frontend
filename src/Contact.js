@@ -141,7 +141,7 @@ ${form.message}`;
             </h2>
 
             <p>
-              Premium computer solutions,
+              Premium computers solutions,
               IT infrastructure and support services.
             </p>
 
