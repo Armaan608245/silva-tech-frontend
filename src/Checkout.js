@@ -144,7 +144,7 @@ ${productList}
 ━━━━━━━━━━━━━━
 `;
 
-    const phoneNumber = "9082631441";
+    const phoneNumber = "9967863961";
 
     const url =
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
