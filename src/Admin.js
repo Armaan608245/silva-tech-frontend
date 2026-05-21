@@ -3,11 +3,11 @@ import axios from "axios";
 
 function Admin() {
 
-  const API = "https://silva-tech-backend-pazp.onrender.com/api/products";
+  const API = "https://silva-tech-backend-pazp.onrender.com/api";
 
   const [tab, setTab] = useState("products");
 
- 
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ function Admin() {
 
   const fetchProducts = async () => {
 
-    const res = await axios.get(API);
+    const res = await axios.get(`${API}/products`);
 
     setProducts(res.data);
   };
@@ -93,27 +93,43 @@ function Admin() {
 
   const handleUpload = async (e, index) => {
 
-    const file = e.target.files[0];
+    try {
 
-    if (!file) return;
+      const file = e.target.files[0];
 
-    const formData = new FormData();
+      if (!file) return;
 
-    formData.append("file", file);
+      const formData = new FormData();
 
-    const res = await axios.post(
-      `${API}/upload`,
-      formData
-    );
+      formData.append("file", file);
 
-    const arr = [...newProduct.media];
+      const res = await axios.post(
+        `${API}/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }
+      );
 
-    arr[index] = res.data.url;
+      const arr = [...newProduct.media];
 
-    setNewProduct({
-      ...newProduct,
-      media: arr
-    });
+      arr[index] = res.data.url;
+
+      setNewProduct({
+        ...newProduct,
+        media: arr
+      });
+
+      alert("Image uploaded ✅");
+
+    } catch (err) {
+
+      console.log(err);
+
+      alert("Upload failed ❌");
+    }
   };
 
 
@@ -189,13 +205,16 @@ function Admin() {
 
     if (editingId) {
 
-      await axios.put(`${API}/${editingId}`, data);
+      await axios.put(
+        `${API}/products/${editingId}`,
+        data
+      );
 
       alert("Updated ✅");
 
     } else {
 
-      await axios.post(API, data);
+      await axios.post(`${API}/products`, data);
 
       alert("Added ✅");
     }
@@ -209,7 +228,9 @@ function Admin() {
 
   const handleDelete = async (id) => {
 
-    await axios.delete(`${API}/${id}`);
+    await axios.delete(
+      `${API}/products/${id}`
+    );
 
     fetchProducts();
   };
@@ -762,6 +783,7 @@ function Admin() {
 
                     <input
                       type="file"
+                      accept="image/*"
                       onChange={(e) =>
                         handleUpload(e, i)
                       }
