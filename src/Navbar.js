@@ -57,31 +57,66 @@ function Navbar() {
 
         <div className={`premium-navbar-links ${menuOpen ? "active" : ""}`}>
 
-          <span onClick={() => navigate("/desktops")}>
+          <span
+            onClick={() => {
+              navigate("/desktops");
+              setMenuOpen(false);
+            }}
+          >
             Desktops
           </span>
 
-          <span onClick={() => navigate("/laptops")}>
+          <span
+            onClick={() => {
+              navigate("/laptops");
+              setMenuOpen(false);
+            }}
+          >
             Laptops
           </span>
 
-          <span onClick={() => navigate("/products/apple")}>
+          <span
+            onClick={() => {
+              navigate("/products/apple");
+              setMenuOpen(false);
+            }}
+          >
             Apple
           </span>
 
-          <span onClick={() => navigate("/accessories")}>
+          <span
+            onClick={() => {
+              navigate("/accessories");
+              setMenuOpen(false);
+            }}
+          >
             Accessories
           </span>
 
-          <span onClick={() => navigate("/services")}>
+          <span
+            onClick={() => {
+              navigate("/services");
+              setMenuOpen(false);
+            }}
+          >
             Services
           </span>
 
-          <span onClick={() => navigate("/about")}>
+          <span
+            onClick={() => {
+              navigate("/about");
+              setMenuOpen(false);
+            }}
+          >
             About
           </span>
 
-          <span onClick={() => navigate("/contact")}>
+          <span
+            onClick={() => {
+              navigate("/contact");
+              setMenuOpen(false);
+            }}
+          >
             Contact
           </span>
 
