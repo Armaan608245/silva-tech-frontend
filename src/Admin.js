@@ -122,7 +122,7 @@ function Admin() {
         media: arr
       });
 
-      alert("Image uploaded ✅");
+      alert("Media uploaded ✅");
 
     } catch (err) {
 
@@ -783,7 +783,7 @@ function Admin() {
 
                     <input
                       type="file"
-                      accept="image/*"
+                      accept="image/*,video/*"
                       onChange={(e) =>
                         handleUpload(e, i)
                       }
@@ -806,12 +806,22 @@ function Admin() {
                     />
 
                     {m && (
+                      m.match(/\.(mp4|webm|ogg)$/i) ? (
 
-                      <img
-                        src={safeImage(m)}
-                        alt=""
-                      />
+                        <video
+                          src={m}
+                          controls
+                          className="admin-preview-video"
+                        />
 
+                      ) : (
+
+                        <img
+                          src={safeImage(m)}
+                          alt=""
+                        />
+
+                      )
                     )}
 
                   </div>
@@ -847,11 +857,24 @@ function Admin() {
                   key={p._id}
                   className="premium-product-card"
                 >
+                  {
+                    p.media?.[0]?.includes("/video/") ? (
 
-                  <img
-                    src={safeImage(p.media?.[0])}
-                    alt=""
-                  />
+                      <video
+                        src={p.media[0]}
+                        controls
+                        className="admin-preview-video"
+                      />
+
+                    ) : (
+
+                      <img
+                        src={safeImage(p.media?.[0])}
+                        alt=""
+                      />
+
+                    )
+                  }
 
                   <div className="product-card-content">
 

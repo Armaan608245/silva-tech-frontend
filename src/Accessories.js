@@ -228,13 +228,33 @@ function Accessories({ cart = [], setCart }) {
 
           <div className="desktop-product-image">
 
-            <img
-              src={safeImage(p.media?.[0])}
-              alt={p.name}
-              onClick={() =>
-                navigate(`/product/${p._id}`)
-              }
-            />
+            {
+              p.media?.[0]?.includes("/video/") ? (
+
+                <video
+                  src={p.media[0]}
+                  className="desktop-product-video"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  onClick={() =>
+                    navigate(`/product/${p._id}`)
+                  }
+                />
+
+              ) : (
+
+                <img
+                  src={safeImage(p.media?.[0])}
+                  alt={p.name}
+                  onClick={() =>
+                    navigate(`/product/${p._id}`)
+                  }
+                />
+
+              )
+            }
 
           </div>
 

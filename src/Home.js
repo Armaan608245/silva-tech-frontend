@@ -22,7 +22,7 @@ function Home({ cart = [], setCart }) {
 
   const navigate = useNavigate();
 
- 
+
 
   /* ================= FETCH ================= */
 
@@ -32,7 +32,7 @@ function Home({ cart = [], setCart }) {
       .then(res => setProducts(res.data))
       .catch(console.log);
 
-    
+
 
   }, []);
 
@@ -70,7 +70,7 @@ function Home({ cart = [], setCart }) {
     return img;
   };
 
-  
+
 
   /* ================= CART ================= */
 
@@ -83,90 +83,90 @@ function Home({ cart = [], setCart }) {
 
   const addToCart = (p) => {
 
-  const exist = cart.find(
-    i => i._id === p._id
-  );
-
-  /* OUT OF STOCK */
-
-  if (Number(p.stock) <= 0) {
-
-    
-
-    return;
-  }
-
-  /* STOCK LIMIT */
-
-  if (
-    exist &&
-    exist.qty >= Number(p.stock)
-  ) {
-
-    alert(
-      `Only ${p.stock} items available`
+    const exist = cart.find(
+      i => i._id === p._id
     );
 
-    return;
-  }
+    /* OUT OF STOCK */
 
-  if (exist) {
+    if (Number(p.stock) <= 0) {
+
+
+
+      return;
+    }
+
+    /* STOCK LIMIT */
+
+    if (
+      exist &&
+      exist.qty >= Number(p.stock)
+    ) {
+
+      alert(
+        `Only ${p.stock} items available`
+      );
+
+      return;
+    }
+
+    if (exist) {
+
+      setCart(cart.map(i =>
+
+        i._id === p._id
+
+          ? {
+            ...i,
+            qty: i.qty + 1
+          }
+
+          : i
+      ));
+
+    } else {
+
+      setCart([
+
+        ...cart,
+
+        {
+          ...p,
+          qty: 1
+        }
+      ]);
+    }
+  };
+
+  const increase = (p) => {
+
+    const item = cart.find(
+      i => i._id === p._id
+    );
+
+    if (
+      item.qty >= Number(p.stock)
+    ) {
+
+      alert(
+        `Only ${p.stock} items available`
+      );
+
+      return;
+    }
 
     setCart(cart.map(i =>
 
       i._id === p._id
 
         ? {
-            ...i,
-            qty: i.qty + 1
-          }
-
-        : i
-    ));
-
-  } else {
-
-    setCart([
-
-      ...cart,
-
-      {
-        ...p,
-        qty: 1
-      }
-    ]);
-  }
-};
-
-  const increase = (p) => {
-
-  const item = cart.find(
-    i => i._id === p._id
-  );
-
-  if (
-    item.qty >= Number(p.stock)
-  ) {
-
-    alert(
-      `Only ${p.stock} items available`
-    );
-
-    return;
-  }
-
-  setCart(cart.map(i =>
-
-    i._id === p._id
-
-      ? {
           ...i,
           qty: i.qty + 1
         }
 
-      : i
-  ));
-};
+        : i
+    ));
+  };
 
   const decrease = (p) => {
 
@@ -625,7 +625,7 @@ function Home({ cart = [], setCart }) {
         </div>
 
       </section>
-      
+
 
       {/* ================= TOP SELLERS ================= */}
 
@@ -680,13 +680,33 @@ function Home({ cart = [], setCart }) {
                   TOP SELLER
                 </span>
 
-                <img
-                  src={safeImage(p.media?.[0])}
-                  alt=""
-                  onClick={() =>
-                    navigate(`/product/${p._id}`)
-                  }
-                />
+                {
+                  p.media?.[0]?.includes("/video/") ? (
+
+                    <video
+                      src={p.media[0]}
+                      className="home-product-video"
+                      autoPlay
+                      muted
+                      loop
+                      controls
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  ) : (
+
+                    <img
+                      src={safeImage(p.media?.[0])}
+                      alt=""
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  )
+                }
 
                 <h3>{p.name}</h3>
 
@@ -758,84 +778,106 @@ function Home({ cart = [], setCart }) {
 
         <div className="core-grid">
 
-          {products.slice(0, 8).map((p, index) => (
+          {products
+            .filter(p => p.isFeatured)
+            .map((p, index) => (
 
-            <motion.div
+              <motion.div
 
-              key={p._id}
+                key={p._id}
 
-              className="core-card"
+                className="core-card"
 
-              initial={{
-                opacity: 0,
-                y: 50
-              }}
+                initial={{
+                  opacity: 0,
+                  y: 50
+                }}
 
-              whileInView={{
-                opacity: 1,
-                y: 0
-              }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }}
 
-              transition={{
-                delay: index * 0.08
-              }}
+                transition={{
+                  delay: index * 0.08
+                }}
 
-              whileHover={{
-                y: -10
-              }}
-            >
+                whileHover={{
+                  y: -10
+                }}
+              >
 
 
 
-              <img
-                src={safeImage(p.media?.[0])}
-                alt=""
-                onClick={() =>
-                  navigate(`/product/${p._id}`)
+                {
+                  p.media?.[0]?.includes("/video/") ? (
+
+                    <video
+                      src={p.media[0]}
+                      className="home-product-video"
+                      autoPlay
+                      muted
+                      loop
+                      controls
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  ) : (
+
+                    <img
+                      src={safeImage(p.media?.[0])}
+                      alt=""
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  )
                 }
-              />
 
-              <h3>{p.name}</h3>
+                <h3>{p.name}</h3>
 
-              <p className="core-price">
-                ₹{p.price}
-              </p>
+                <p className="core-price">
+                  ₹{p.price}
+                </p>
 
-              {getQty(p._id) > 0 ? (
+                {getQty(p._id) > 0 ? (
 
-                <div className="qty-box-modern">
+                  <div className="qty-box-modern">
 
-                  <button onClick={() => decrease(p)}>
-                    -
+                    <button onClick={() => decrease(p)}>
+                      -
+                    </button>
+
+                    <span>{getQty(p._id)}</span>
+
+                    <button onClick={() => increase(p)}>
+                      +
+                    </button>
+
+                  </div>
+
+                ) : (
+
+                  <button
+                    className="add-modern-btn"
+                    onClick={() => addToCart(p)}
+                  >
+                    Add To Cart
                   </button>
 
-                  <span>{getQty(p._id)}</span>
+                )}
 
-                  <button onClick={() => increase(p)}>
-                    +
-                  </button>
+              </motion.div>
 
-                </div>
-
-              ) : (
-
-                <button
-                  className="add-modern-btn"
-                  onClick={() => addToCart(p)}
-                >
-                  Add To Cart
-                </button>
-
-              )}
-
-            </motion.div>
-
-          ))}
+            ))}
 
         </div>
 
       </section>
-      
+
       {/* ================= COMING SOON ================= */}
 
       <section className="core-section">
@@ -889,13 +931,33 @@ function Home({ cart = [], setCart }) {
                   COMING SOON
                 </span>
 
-                <img
-                  src={safeImage(p.media?.[0])}
-                  alt=""
-                  onClick={() =>
-                    navigate(`/product/${p._id}`)
-                  }
-                />
+                {
+                  p.media?.[0]?.includes("/video/") ? (
+
+                    <video
+                      src={p.media[0]}
+                      className="home-product-video"
+                      autoPlay
+                      muted
+                      loop
+                      controls
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  ) : (
+
+                    <img
+                      src={safeImage(p.media?.[0])}
+                      alt=""
+                      onClick={() =>
+                        navigate(`/product/${p._id}`)
+                      }
+                    />
+
+                  )
+                }
 
                 <h3>{p.name}</h3>
 
