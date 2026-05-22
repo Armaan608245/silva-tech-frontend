@@ -197,29 +197,54 @@ function ProductDetails({ cart = [], setCart }) {
                   onMouseLeave={resetZoom}
                   onClick={() => setModal(m)}
                 >
+                  {current === i && (
+                  <>
+                  {
+                    m.includes("youtube.com/shorts/") ||
+                      m.includes("youtube.com/embed/") ? (
 
-                  {m.includes(".mp4") ? (
+                      <iframe
+                        src={
+                          m.includes("shorts/")
+                            ? `https://www.youtube.com/embed/${m.split("shorts/")[1].split("?")[0]
+                            }`
+                            : m
+                        }
+                        title="YouTube Shorts"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          border: "none",
+                          borderRadius: "18px"
+                        }}
+                      ></iframe>
 
-                    <video
-                      src={m}
-                      controls
-                      style={mediaStyle}
-                    />
+                    ) : m.includes(".mp4") ? (
 
-                  ) : (
+                      <video
+                        src={m}
+                        controls
+                        style={mediaStyle}
+                      />
 
-                    <img
-                      src={m}
-                      alt=""
-                      onMouseMove={handleMouseMove}
-                      style={{
-                        ...mediaStyle,
-                        ...zoomStyle
-                      }}
-                    />
+                    ) : (
 
+                      <img
+                        src={m}
+                        alt=""
+                        onMouseMove={handleMouseMove}
+                        style={{
+                          ...mediaStyle,
+                          ...zoomStyle
+                        }}
+                      />
+
+                    )
+                  }
+                  </>
                   )}
-
                 </div>
 
               ))}
@@ -256,7 +281,40 @@ function ProductDetails({ cart = [], setCart }) {
 
             {media.map((m, i) => (
 
-              m.includes(".mp4") ? (
+              m.includes("youtube.com/shorts/") ||
+                m.includes("youtube.com/embed/") ? (
+
+                <div
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  style={{
+                    ...thumb,
+                    border:
+                      current === i
+                        ? "2px solid #2563eb"
+                        : "1px solid #ddd",
+                    overflow: "hidden"
+                  }}
+                >
+
+                  <iframe
+                    src={
+                      m.includes("shorts/")
+                        ? `https://www.youtube.com/embed/${m.split("shorts/")[1].split("?")[0]
+                        }`
+                        : m
+                    }
+                    title="thumb"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      pointerEvents: "none"
+                    }}
+                  ></iframe>
+
+                </div>
+              ) : m.includes(".mp4") ? (
 
                 <video
                   key={i}
@@ -630,24 +688,47 @@ function ProductDetails({ cart = [], setCart }) {
           onClick={() => setModal(null)}
         >
 
-          {modal.includes(".mp4") ? (
+          {
+            modal.includes("youtube.com/shorts/") ||
+              modal.includes("youtube.com/embed/") ? (
 
-            <video
-              src={modal}
-              controls
-              autoPlay
-              style={modalMedia}
-            />
+              <iframe
+                src={
+                  modal.includes("shorts/")
+                    ? `https://www.youtube.com/embed/${modal.split("shorts/")[1].split("?")[0]
+                    }`
+                    : modal
+                }
+                title="YouTube Shorts"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  width: "90%",
+                  height: "90%",
+                  border: "none",
+                  borderRadius: "18px"
+                }}
+              ></iframe>
 
-          ) : (
+            ) : modal.includes(".mp4") ? (
 
-            <img
-              src={modal}
-              alt=""
-              style={modalMedia}
-            />
+              <video
+                src={modal}
+                controls
+                autoPlay
+                style={modalMedia}
+              />
 
-          )}
+            ) : (
+
+              <img
+                src={modal}
+                alt=""
+                style={modalMedia}
+              />
+
+            )
+          }
 
         </div>
 
@@ -718,22 +799,28 @@ const zoomBox = {
 
   minWidth: "100%",
 
+  width: "100%",
+
+  height: "500px",
+
   display: "flex",
 
   justifyContent: "center",
 
   alignItems: "center",
 
-  cursor: "zoom-in",
+  overflow: "hidden",
 
-  background: "#fff"
+  background: "#fff",
+
+  borderRadius: "18px"
 };
 
 const mediaStyle = {
 
   width: "100%",
 
-  height: "500px",
+  height: "100%",
 
   objectFit: "contain",
 

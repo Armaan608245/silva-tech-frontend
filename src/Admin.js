@@ -188,13 +188,28 @@ function Admin() {
 
   const handleAddProduct = async () => {
 
+    // Convert YouTube Shorts URL
+    const updatedMedia = newProduct.media.map((url) => {
+
+      if (url.includes("youtube.com/shorts/")) {
+
+        const videoId = url
+          .split("shorts/")[1]
+          .split("?")[0];
+
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+
+      return url;
+    });
+
     const data = {
 
       ...newProduct,
 
       price: parseInt(newProduct.price) || 0,
 
-      media: newProduct.media.filter(m => m),
+      media: updatedMedia.filter(m => m),
 
       isTopSeller: Boolean(newProduct.isTopSeller),
 
@@ -812,7 +827,27 @@ function Admin() {
                     />
 
                     {m && (
-                      m.match(/\.(mp4|webm|ogg)$/i) ? (
+
+                      m.includes("youtube.com/shorts/") ||
+                        m.includes("youtube.com/embed/") ? (
+
+                        <iframe
+                          width="100%"
+                          height="220"
+                          src={
+                            m.includes("shorts/")
+                              ? `https://www.youtube.com/embed/${m.split("shorts/")[1].split("?")[0]
+                              }`
+                              : m
+                          }
+                          title="YouTube video"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="admin-preview-video"
+                        ></iframe>
+
+                      ) : m.match(/\.(mp4|webm|ogg)$/i) ? (
 
                         <video
                           src={m}
@@ -864,7 +899,21 @@ function Admin() {
                   className="premium-product-card"
                 >
                   {
-                    p.media?.[0]?.includes("/video/") ? (
+                    p.media?.[0]?.includes("youtube.com/embed/") ? (
+
+                      <iframe
+                        width="100%"
+                        height="220"
+                        src={p.media[0]}
+                        title="YouTube video"
+                        frameBorder="0"
+                        allowFullScreen
+                        className="admin-preview-video"
+                      ></iframe>
+
+                    ) : p.media?.[0]?.includes("/video/") ||
+
+                      p.media?.[0]?.match(/\.(mp4|webm|ogg)$/i) ? (
 
                       <video
                         src={p.media[0]}

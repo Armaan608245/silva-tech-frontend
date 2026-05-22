@@ -229,7 +229,31 @@ function Accessories({ cart = [], setCart }) {
           <div className="desktop-product-image">
 
             {
-              p.media?.[0]?.includes("/video/") ? (
+              p.media?.[0]?.includes("youtube.com/shorts/") ||
+                p.media?.[0]?.includes("youtube.com/embed/") ? (
+
+                <div className="youtube-wrapper">
+
+                  <iframe
+                    src={
+                      p.media[0].includes("shorts/")
+                        ? `https://www.youtube.com/embed/${p.media[0]
+                          .split("shorts/")[1]
+                          .split("?")[0]
+                        }`
+                        : p.media[0]
+                    }
+                    title="YouTube Shorts"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="youtube-frame"
+                  ></iframe>
+
+                </div>
+
+              ) : p.media?.[0]?.includes("/video/") ||
+
+                p.media?.[0]?.match(/\.(mp4|webm|ogg)$/i) ? (
 
                 <video
                   src={p.media[0]}
@@ -238,9 +262,6 @@ function Accessories({ cart = [], setCart }) {
                   muted
                   loop
                   controls
-                  onClick={() =>
-                    navigate(`/product/${p._id}`)
-                  }
                 />
 
               ) : (
