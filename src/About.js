@@ -176,7 +176,7 @@ function About() {
 
               <p>
                 <strong>Expertise:</strong>
-                {" "}Silva Tech Computer brings more than 18 years of professional expertise in providing comprehensive IT solutions and technical support services. From computer sales and repairs to advanced networking, CCTV surveillance, printers, and enterprise infrastructure management, we are dedicated to delivering dependable and efficient technology services. Our experienced team focuses on quality, innovation, and long-term customer relationships, ensuring every client receives personalized solutions and exceptional support.
+                {" "}Silva Tech Computers brings more than 18 years of professional expertise in providing comprehensive IT solutions and technical support services. From computer sales and repairs to advanced networking, CCTV surveillance, printers, and enterprise infrastructure management, we are dedicated to delivering dependable and efficient technology services. Our experienced team focuses on quality, innovation, and long-term customer relationships, ensuring every client receives personalized solutions and exceptional support.
               </p>
 
             </div>
