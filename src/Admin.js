@@ -243,7 +243,13 @@ function Admin() {
 
       ...p,
 
-      media: p.media || ["", "", "", ""],
+      media: [
+        ...(p.media || []),
+
+        ...Array(
+          4 - (p.media?.length || 0)
+        ).fill("")
+      ],
 
       isTopSeller: Boolean(p.isTopSeller),
 
