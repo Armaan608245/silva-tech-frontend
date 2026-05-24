@@ -1040,6 +1040,7 @@ function Home({ cart = [], setCart }) {
 
       </section>
 
+
       {/* ================= WHY US ================= */}
 
       <section className="why-core">
@@ -1064,6 +1065,7 @@ function Home({ cart = [], setCart }) {
             title: "🏢 Corporate Solutions",
             text: "Enterprise-level IT services"
           }
+
 
         ].map((item, index) => (
 
@@ -1100,6 +1102,95 @@ function Home({ cart = [], setCart }) {
           </motion.div>
 
         ))}
+
+      </section>
+
+      {/* ================= REVIEWS ================= */}
+
+      <section className="review-section">
+
+        <motion.h2
+          className="premium-title"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          Customer Reviews
+        </motion.h2>
+
+        <p className="review-subtitle">
+          Trusted by customers across Mumbai
+        </p>
+
+        <div className="review-grid">
+
+          <motion.div
+            className="review-card"
+            whileHover={{ y: -8 }}
+          >
+
+            <div className="review-stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              Excellent repair service and genuine pricing.
+            </p>
+
+            <h4>
+              Rahul Mehta
+            </h4>
+
+          </motion.div>
+
+          <motion.div
+            className="review-card"
+            whileHover={{ y: -8 }}
+          >
+
+            <div className="review-stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              Very professional networking setup for our office.
+            </p>
+
+            <h4>
+              Ayesha Khan
+            </h4>
+
+          </motion.div>
+
+          <motion.div
+            className="review-card"
+            whileHover={{ y: -8 }}
+          >
+
+            <div className="review-stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              Best laptop and desktop service in Mumbai.
+            </p>
+
+            <h4>
+              Imran Shaikh
+            </h4>
+
+          </motion.div>
+
+        </div>
+
+        <a
+          href="https://g.page/r/CXnEvyXRMB6mEBM/review"
+          target="_blank"
+          rel="noreferrer"
+          className="review-btn"
+        >
+          Leave a Google Review
+        </a>
 
       </section>
 

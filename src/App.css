@@ -7680,3 +7680,74 @@ body::before{
   height: 100%;
   border: none;
 }
+.review-section{
+  padding:80px 8%;
+  background:#07142b;
+  color:white;
+  text-align:center;
+}
+
+.review-title h2{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.review-title p{
+  color:#9fb3d9;
+  margin-bottom:50px;
+}
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.review-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:30px;
+  border-radius:25px;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+
+.review-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,123,255,0.25);
+}
+
+.review-stars{
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+.review-card p{
+  color:#d7e3ff;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.review-card h4{
+  color:#4ea1ff;
+}
+
+.review-btn{
+  display:inline-block;
+  margin-top:50px;
+  padding:16px 40px;
+  border-radius:50px;
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.3s;
+}
+
+.review-btn:hover{
+  transform:scale(1.05);
+}
